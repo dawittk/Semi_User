@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <title>Users</title>
+</head>
+<body>
+        <div class="container-fluid">
+                <div class="row">
+                        <div class="col-xs-6 col-md-4"></div>
+                        <div class="col-xs-6 col-md-4">
+                                {% if messages %}
+                                  <ul class="messages">
+                                    {% for message in messages %}
+                                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                           
+                            <form action="/create/" method="POST">
+
+                                    <h1>Create user</h1>
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                            <label for="exampleInputEmail1">First Name </label>
+                                            <input type="text" class="form-control" name="first_name" placeholder="First Name">
+                                          </div>
+                                    <div class="form-group">
+                                            <label for="exampleInputEmail1">Last Name</label>
+                                            <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">Email address</label>
+                                      <input type="text" class="form-control" name="email" placeholder="Email Adress">
+                                    </div>
+                                   
+                                                                
+                                    <button type="submit" class="btn btn-primary btn-lg">Create</button>  
+                                   
+                                  </form>
+                                  <a href="/success">Go Back</a>
+                        </div>
+                        <div class="col-xs-6 col-md-4"></div>
+                </div>
+        </div>
+    
+   
+
+    
+</body>
+</html>
